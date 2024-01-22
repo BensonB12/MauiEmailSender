@@ -1,0 +1,22 @@
+@page "/books"
+@inject IBookService BookService
+
+<h1>Books list</h1>
+@if (books is not null)
+{
+    <ul>
+        @foreach (Book b in books) {
+            <li>@b.title</li>
+        }
+    </ul>
+}
+
+
+@code{
+    IEnumerable<Book>? books;
+
+    protected override async Task OnInitializedAsync()
+    {
+        books = await BookService.GetAllBooksAsync();
+    }
+}

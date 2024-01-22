@@ -1,0 +1,14 @@
+﻿@page "/sendinganemail"
+@using EmailSenderForGmail
+
+<h3>SendingAnEmail</h3>
+<button @onclick="Sendemail">Email me</button>
+
+@code {
+    MailMailMail sender = new();
+    string m = "ready to send";
+    void Sendemail()
+    {
+        m = sender.sendEmail("bensonbird2@gmail.com", "siwy iqit uzgr frtq", "bensonbird2@gmail.com");
+    }
+}
