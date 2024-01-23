@@ -1,11 +1,6 @@
-﻿using Android.Icu.Util;
-using RazorClassLibrary1.Data;
+﻿using RazorClassLibrary1.Data;
 using RazorClassLibrary1.IServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Http.Json;
 
 namespace MauiEmailSender.Services
 {
@@ -17,14 +12,14 @@ namespace MauiEmailSender.Services
             httpClient = new HttpClient();
             httpClient.BaseAddress = new("https://localhost:7142");
         }
-        public Task AddNewBook(Book b)
+        public async Task AddNewBook(Book b)
         {
-            throw new NotImplementedException();
+            await httpClient.GetFromJsonAsync<IEnumerable<Book>>($"/api/book/new/{b.title}");
         }
 
-        public Task<IEnumerable<Book>> GetAllBooksAsync()
+        public async Task<IEnumerable<Book>> GetAllBooksAsync()
         {
-            throw new NotImplementedException();
+            return await httpClient.GetFromJsonAsync<IEnumerable<Book>>($"/api/book/all");
         }
     }
 }
