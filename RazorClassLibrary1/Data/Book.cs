@@ -8,10 +8,20 @@ namespace RazorClassLibrary1.Data
 {
     public class Book
     {
+        public string title { get; set; }
         public Book(string title)
         {
             this.title = title;
         }
-        public string title { get; set; }
+
+        public string ToJson()
+        {
+            return this.title;
+        }
+
+        public string ToCVS()
+        {
+            return this.title + ",";
+        }
     }
 }

@@ -5,4 +5,5 @@ namespace RazorClassLibrary1.IServices;
 public interface IBookService
 {
     Task<IEnumerable<Book>> GetAllBooksAsync();
+    Task AddNewBook(Book b);
 }

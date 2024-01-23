@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiEmailSender.Services;
+using Microsoft.Extensions.Logging;
+using RazorClassLibrary1.IServices;
 
 namespace MauiEmailSender
 {
@@ -19,6 +21,7 @@ namespace MauiEmailSender
 #if DEBUG
     		builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
+            builder.Services.AddScoped<IBookService, BookService>();
 #endif
 
             return builder.Build();
