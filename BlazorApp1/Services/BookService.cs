@@ -6,8 +6,8 @@ namespace BlazorApp1.Services;
 
 public class BookService : IBookService
 {
-    FakeDbContext _context;
-    public BookService(FakeDbContext context)
+    IFakeDbContext _context;
+    public BookService(IFakeDbContext context)
     {
         _context = context;
     }

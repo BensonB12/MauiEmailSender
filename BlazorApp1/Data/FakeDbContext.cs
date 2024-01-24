@@ -10,7 +10,7 @@ namespace BlazorApp1.Data
         public FakeDbContext() 
         { 
             books = new List<Book>();
-            var cvs = File.ReadAllText(Utilities.FindFile("BookDataBase.json"));
+            var cvs = File.ReadAllText(Utilities.FindFile("BookDataBase.cvs"));
             var values = cvs.Split(',');
 
             for(int i = 0; i < values.Length - 1; i++)

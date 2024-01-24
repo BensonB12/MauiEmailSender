@@ -1,5 +1,4 @@
-﻿@using RazorClassLibrary1.Components
-<Router AppAssembly="@typeof(Program).Assembly" AdditionalAssemblies="[ typeof(Books).Assembly ]">
+﻿<Router AppAssembly="@typeof(Program).Assembly" AdditionalAssemblies="[ typeof(Books).Assembly ]">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(Layout.MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
