@@ -8,8 +8,8 @@ namespace BlazorApp1.Controllers;
 [ApiController]
 public class BookController : Controller
 {
-    FakeDbContext _context;
-    public BookController(FakeDbContext c)
+    IFakeDbContext _context;
+    public BookController(IFakeDbContext c)
     {
         _context = c;
     }
