@@ -1,6 +1,7 @@
 ﻿using BlazorApp1.Data;
 using Microsoft.AspNetCore.Mvc;
 using RazorClassLibrary1.Data;
+using RazorClassLibrary1.IServices;
 
 namespace BlazorApp1.Controllers;
 
@@ -8,22 +9,22 @@ namespace BlazorApp1.Controllers;
 [ApiController]
 public class BookController : Controller
 {
-    IFakeDbContext _context;
-    public BookController(IFakeDbContext c)
+    IBookService _service;
+    public BookController(IBookService c) 
     {
-        _context = c;
+        _service = c;
     }
 
     [HttpGet("all")]
     public async Task<IEnumerable<Book>> GetAllBooks()
     {
-        return await _context.GetAllBooks();
+        return await _service.GetAllBooksAsync();
     }
 
     [HttpGet("new/{bookTitle}")]
-    public async Task<IEnumerable<Book>> GetAllBooks(string bookTitle)
+    public async Task<IEnumerable<Book>> AddNewBook(string bookTitle)
     {
-        await _context.AddABook(new(bookTitle));
-        return await _context.GetAllBooks();
+        await _service.AddNewBook(new(bookTitle));
+        return await _service.GetAllBooksAsync();
     }
 }
